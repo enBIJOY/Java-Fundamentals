@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+
+        if ( a == 1 ){
+            System.out.println("Enter Your Result");
+            int b = sc.nextInt();
+            if ( b >= 90) {
+                System.out.println("Execlent Result");
+            } else if ( b >=89) {
+                System.out.println("Very good Result");
+            } else if ( b >= 59) {
+                System.out.println("You did good Try");
+            } else if ( b >= 33) {
+                System.out.println("You passed");
+            } else {
+                System.out.println("NA");
+            }
+        } else if ( a == 0) {
+            System.out.println("out");
+        } else {
+            System.out.println("Invalid Request");
+        }
+    }
+}
