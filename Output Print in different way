@@ -1,0 +1,15 @@
+public class main {
+    public static void main(String[] args) {
+        //print different line - println
+        System.out.println("Hello World");
+        System.out.println("Hello World");
+        //print in line - print
+        System.out.print("Hello World");
+        System.out.print("Hello World");
+        //print different line - \n
+        System.out.print("Hello World\n");
+        System.out.print("Hello World\n");
+        //print line break
+        System.out.print("Hello\nWorld");
+    }
+}
