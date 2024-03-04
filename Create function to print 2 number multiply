@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class main {
+
+    static int calculateProduct (int a, int b){
+        int mul = a * b;
+        return mul;
+        //or
+        //we can directly return the value
+        //return a * b;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int mul = calculateProduct(a,b);
+        System.out.println(mul);
+
+        //or
+        //similarly we can print directly without call the value
+        //System.out.println(calculateProduct(a,b));
+    }
+}
