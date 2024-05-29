@@ -1,0 +1,24 @@
+public class Main {
+
+    public static void main(String args[]) {
+
+        Scanner sc = new Scanner(System.in); // take input from the user
+        int size = sc.nextInt(); // size of array
+        int numbers [] = new int [size]; // array define
+
+        for (int i=0; i<size; i++) {
+            numbers [i] = sc.nextInt(); // take input of size from the user
+        }
+
+        int x = sc.nextInt(); // take input of number x
+
+
+        for (int i=0; i<size; i++){  // loop for searching x in the array by lenear seach
+            if (numbers[i] == x){  // condition if x found by searching x == numbers i
+                System.out.println ("x found at index" + i);  // output
+            }
+
+        }
+
+    }
+}
