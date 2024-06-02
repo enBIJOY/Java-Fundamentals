@@ -1,0 +1,79 @@
+// GET BIT
+// Solving for n = 101101 (45 in desimal)
+// Rules: 1. bitmask: 1<<position. 2. bitMask & n 
+
+public class Main {
+    public static void main(String args[]) {
+        int n = 45;
+        int pos = 0;
+        int bitMask = 1<<pos;
+
+        if((bitMask & n) == 0) {
+            System.out.println("bit is Zero");
+        } else {
+            System.out.println("bit is one");
+        }
+    }
+}
+
+
+
+// SET BIT
+// Solving for n = 101101 (45 in desimal)
+// Rules: 1. bitmask: 1<<position. 2. bitMask |(OR) n  
+
+public class Main {
+    public static void main(String args[]) {
+        int n = 45;
+        int pos = 1;
+        int bitMask = 1<<pos;
+
+        int newNumber =  bitMask | n;
+        System.out.println(newNumber);
+    }
+}
+
+
+// CLEAR BIT
+// Solving for n = 101101 (45 in desimal)
+// Rules: 1. bitmask: 1<<position. 2. Not (~) of bitmask. 3. Not & n.   
+
+public class Main {
+    public static void main(String args[]) {
+        int n = 45;
+        int pos = 2;
+        int bitMask = 1<<pos;
+
+        int notBitMask = ~ (bitMask);
+        int newNumber = notBitMask & n;
+        System.out.println(newNumber);
+    }
+}
+
+
+//UPDATE BIT
+// Solving for n = 101101 (45 in desimal)
+// Rules: For input from the user create a scanner and ask for operation 1/0.
+//created bitmask in outside because (set & clear) both operations need bitmask.
+//For Set: in if condition: 1. bitMask |(OR) n
+//For Clear: in else condition: 1. Not (~) of bitmask. 1. Not & n.   
+
+public class Main {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int oper = sc.nextInt();
+
+        int n = 45;
+        int pos = 1;
+        int bitMask = 1<<pos;
+
+        if (oper == 1){
+            int newNumber = bitMask | n;
+            System.out.println(newNumber);
+        } else {
+            int notBitMask = ~ (bitMask);
+            int newNumber = notBitMask & n;
+            System.out.println(newNumber);
+        }
+    }
+}
