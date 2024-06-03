@@ -1,0 +1,116 @@
+BABBLE SORT  :
+
+
+public class Main {
+
+    //for output we created a variable name printArray  and push a loop to print multiple output result.
+    public static void printArray(int arr[]) {
+            for (int i=0; i<arr.length; i++){  //output print loop
+                System.out.print(arr[i]+""); //output
+            }
+            System.out.println(); //space for output
+        }
+
+        public static void main (String args[]){
+           int arr[] = {7,8,1,2,3,4,15};  //input
+
+           //bubble sort
+
+            for (int i=0; i<arr.length-1; i++){ //we know boble sort work n-1 times. so out i=first number =0 . and our loop will run to our arry length.
+                for (int j=0; j<arr.length-i-1; j++){ // we create here our inner loop for n-2 to sorted i.
+                    if (arr[j] > arr[j+1]) { // if j is bigger than j+1 then we swap our elements
+
+                        //swap
+                        int temp = arr[j];  // take a variable to store value of j
+                        arr[j] = arr[j+1]; // swap process
+                        arr[j+1] = temp; // swap process
+                    }
+                }
+            }
+            printArray(arr); //output call
+    }
+}
+
+
+
+
+
+SELECTION SORT :
+
+
+
+public class Main {
+
+    //for output we created a variable name printArray  and push a loop to print multiple output result.
+    public static void printArray(int arr[]) {
+            for (int i=0; i<arr.length; i++){  //output print loop
+                System.out.print(arr[i]+""); //output
+            }
+            System.out.println(); //space for output
+        }
+
+        public static void main (String args[]){
+           int arr[] = {7,8,1,2,3,4,15};  //input
+
+           //Selection Sort
+
+            for (int i=0; i<arr.length-1; i++){ //we know selection sort work n-1 times. so out i=first number =0 . and our loop will run to our arry length.
+                int smallest = i; // which is our smallest array intiger
+                for (int j=i+1; j<arr.length; j++){ //we have increased the value of j so that the value of j can increase by after end of a loop.
+                    if (arr[smallest] > arr[j]){ //condition for if our smallest array is lower than j.
+                        smallest = j; // Create a object J and then swap one time per loop.
+
+
+                    }
+                }
+                //swap
+                int temp = arr[smallest];  // take a variable to store value of j
+                arr[smallest] = arr[i]; // swap process
+                arr[i] = temp; // swap process
+            }
+            printArray(arr); //output call
+    }
+}
+
+
+
+
+
+
+
+
+INSERTION SORT :
+
+
+
+
+public class Main {
+
+    //for output we created a variable name printArray  and push a loop to print multiple output result.
+    public static void printArray(int arr[]) {
+            for (int i=0; i<arr.length; i++){  //output print loop
+                System.out.print(arr[i]+""); //output
+            }
+            System.out.println(); //space for output
+        }
+
+        public static void main (String args[]){
+           int arr[] = {7,8,1,2,3,4,15};  //input
+
+           //insertion sort
+
+            for (int i=1; i<arr.length; i++){ // in insertion sort, the first position is alway sorted we know.
+                int current = arr[i];// which is our current intiger
+                int j = i-1; // we care a variabler for if intinger j = i - 1 then
+                while (j >= 0 && current < arr[j] ){ 
+                    arr[j+1] = arr[j];
+                    j--;
+                    }
+                //swap
+                arr[j+1] = current; 
+            }
+        printArray(arr); //output call
+    }
+
+}
+
