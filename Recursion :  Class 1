@@ -1,0 +1,151 @@
+Recursion: 1
+
+QS: Print the Number 1 to 5.
+
+public class Main {
+    public static void printNumb (int n){ // create a non return function "printNumb".
+        if (n == 6){ // condition to avoid stack overflow
+            return;
+        }
+        System.out.println(n);
+        printNumb(n+1); // go through the n + 1 every time
+    }
+
+
+
+    public static void main (String args[]){
+        int n = 1; // firstly we created a veriable which is n and value is 1.
+            printNumb(n); // and print the number and go back to next paramiter
+    }
+}
+
+
+
+
+
+QS: Print the Number 5 to 1.
+
+
+public class Main {
+    public static void printNumb (int n){ // create a non return function "printNumb".
+        if (n == 0){ // condition to avoid stack overflow
+            return;
+        }
+        System.out.println(n);
+        printNumb(n-1); // go through the n - 1 every time
+    }
+
+
+
+    public static void main (String args[]){
+        int n = 5; // firstly we created a veriable which is n and value is 5.
+            printNumb(n); // and print the number and go back to next paramiter
+    }
+}
+
+
+
+
+
+
+QS: Pring the sum of n natural Number.
+
+
+public class Main {
+    public static void printSum (int i, int n, int sum){
+        if (i==n){
+            sum -= i;
+            System.out.println(sum);
+            return;
+        }
+        sum -= i;
+        printSum(i-1, n, sum);
+    }
+    public static void main (String args[]){
+        printSum(6, 1, 0);
+    }
+}
+
+
+
+
+
+
+
+QS: Print Factorial of a number n.
+
+
+public class Main {
+    public static int callFactorial (int n){
+        if (n==1 || n==0){
+            return 1;
+        }
+        int fact_nm1 = callFactorial(n-1);
+        int fact_n = n * fact_nm1;
+        return fact_n;
+    }
+    public static void main (String args[]){
+        int n = 5;
+        int ans = callFactorial(n);
+        System.out.println(ans);
+    }
+}
+
+
+
+
+
+QS: Print the fibonaccy sequence till n(th) term.
+
+
+
+public class Main {
+    // fibonacci sequence: abc → c = a + b | so o 1 = 1 , 1 1 = 2, 1 2 = 3, 3 2 = 5.......n
+    public static void printFibSecu(int a, int b, int n){  // int a = secound last term and int b = int last term and int n = int a + int b
+        if (n==0){ // condition for avoid stack overflow
+            return;
+        }
+        int c = a + b; // fibonaccy rule 
+        System.out.println(c); 
+        printFibSecu(b, c, n-1); // we work loop for n-1 times.
+    }
+    public static void main (String args[]){
+        int a = 0, b = 1; // initialise of intiger
+        System.out.println(a); 
+        System.out.println(b); 
+        int n = 9; // value of n
+        printFibSecu(a, b, n-2); // we calculate n-2 times per loop.
+    }
+}
+
+
+
+
+
+
+
+
+
+QS: Print x^n ( stack height = n )
+
+
+
+public class Main {
+    // Stack height ( how many set of variable/array in the stack )
+    public static int calPower (int x, int n){
+        if (n==0){
+            return 1;
+        }
+        if (x==0){
+            return 0;
+        }
+        int xpowernm1 = calPower(x, n-1); 
+        int xpower = x * xpowernm1;
+        return xpower;
+    }
+    public static void main (String args[]){
+        int x = 2, n = 5;
+        int ans = calPower(x,n);
+        System.out.println(ans);
+    }
+}
