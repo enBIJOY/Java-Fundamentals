@@ -1,0 +1,217 @@
+
+
+QS : Power Of Henoi
+
+public class Main {
+    public static void towerOfHenoi (int n, String src, String helper, String dest){
+        if(n==1){
+            System.out.println("Transfar Disk"+ n + "from"+src+"To"+dest);
+            return;
+        }
+
+        towerOfHenoi(n-1, src, dest, helper);
+        System.out.println("Transfar Disk"+ n + "from"+src+"To"+dest);
+        towerOfHenoi(n-1,helper,src,dest);
+    }
+    public static void main (String args[]){
+            int n = 5;
+            towerOfHenoi(n,"s","H","D");
+    }
+}
+
+
+
+
+
+QS  :  Print a String in Reverse 
+
+
+public class Main {
+    public static void PrintInReverse (String str, int index){
+        if (index == 0){
+            System.out.println(str.charAt(index));
+            return;
+        }
+        System.out.println(str.charAt(index));
+        PrintInReverse(str,index-1);
+    }
+    public static void main (String args[]){
+            String str = "Bijoy";
+            PrintInReverse(str, str.length()-1);
+    }
+}
+
+
+
+
+
+
+
+QS  : Find the first & last occurance of an element in string
+
+
+public class Main {
+    public static int first = -1;
+    public static int last = -1;
+
+    public static void findOccurance(String str, int inx, char element){
+        if (inx==str.length()){
+            System.out.println(first);
+            System.out.println(last);
+            return;
+        }
+        char currChar = str.charAt(inx);
+        if (currChar==element){
+            if (first==-1){
+                first=inx;
+            }else {
+                last=inx;
+            }
+        }
+        findOccurance(str,inx+1, element);
+    }
+
+
+    public static void main (String args[]){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+//        String str = "amarnambijoy";
+        findOccurance(str, 0, 'm');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+QS : Check if an array is shorted (Strictly increased)
+
+public class Main {
+    public static boolean isSorted(int arr[], int idx){
+        if (idx==arr.length-1) {
+            return true;
+        }
+
+        if (arr[idx] < arr[idx+1]) {
+            // array is sorted till now
+
+            return isSorted(arr, idx+1);
+        }else {
+            return false;
+        }
+    }
+    public static void main (String args[]){
+        int arr[] = { 1,6,9};
+        System.out.println( isSorted(arr, 0));
+    }
+}
+
+
+
+
+
+
+
+
+
+QS  :  Move all x to the end of the string.
+
+
+public class Main {
+    public static void moveAllX (String str,int idx, int count, String newStr){
+        if (idx==str.length()) {
+            for (int i=0; i<count; i++){
+                newStr += "x";
+            }
+            System.out.println(newStr);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        if (currChar == 'x') {
+            count ++;
+            moveAllX(str, idx+1, count, newStr);
+        } else {
+            newStr += currChar; // newStr = newStr + currChar
+            moveAllX(str, idx+1, count, newStr);
+        }
+    }
+    public static void main (String args[]){
+        String str = "axjaxxeixx";
+        moveAllX(str, 0, 0, "");
+    }
+}
+
+
+
+
+
+
+QS :  Remove Duplicates in String
+
+
+public class Main {
+    public static boolean[] map = new boolean[26];
+
+    public static void removeDuplicates(String str, int idx, String newStr){
+        if (idx==str.length()) {
+            System.out.println(newStr);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+        if(map[currChar -'a']) {
+            removeDuplicates(str, idx+1, newStr);
+        }else {
+            newStr += currChar;
+            map[currChar - 'a'] = true;
+            removeDuplicates(str, idx+1, newStr);
+        }
+    }
+    public static void main (String args[]){
+        String str = "axjaxxeixx";
+        removeDuplicates(str, 0, "");
+    }
+}
+
+
+
+
+
+QS : Print all the subsequence of a string
+
+
+public class Main {
+    public static void subsequences(String str, int idx, String newStr){
+
+        if (idx == str.length()) {
+            System.out.println(newStr);
+            return;
+        }
+
+        char currChar = str.charAt(idx);
+        //to be subsequence
+        subsequences(str,idx + 1, newStr + currChar);
+        //not to be subsequnce
+        subsequences(str, idx +1, newStr);
+    }
+    public static void main (String args[]){
+        String str = "xyz";
+        subsequences(str, 0, "");
+    }
+}
+
+
+
+
+
+
+
+
+
+
