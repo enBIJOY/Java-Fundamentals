@@ -213,5 +213,67 @@ public class Main {
 
 
 
+QS :  Print all the Unique subsequence of a string
+
+
+public class Main {
+    public static void subsequences(String str, int idx, String newStr, HashSet<String> set){
+        if (idx == str.length()) {
+            if (set.contains(newStr)) {
+                return;
+            }else {
+                System.out.println(newStr);
+                set.add(newStr);
+                return;
+            }
+
+        }
+
+        char currChar = str.charAt(idx);
+        //to be subsequence
+        subsequences(str,idx + 1, newStr + currChar, set);
+        //not to be subsequnce
+        subsequences(str, idx +1, newStr, set);
+    }
+    public static void main (String args[]){
+        String str = "zzz";
+        HashSet<String> set = new HashSet<>();
+        subsequences(str, 0, "", set);
+    }
+
+}
+
+
+
+
+
+
+
+
+QS : Print Keyboard Combination.
+
+
+public class Main {
+    public static String[] keypad = {".", "abc","def","ghi","jkl","mno","pqrs","tuvw","xyz"};
+
+    public static void printComb (String str, int idx, String Combination) {
+        if (idx == str.length()) {
+            System.out.println(Combination);
+            return;
+        }
+    char currChar = str.charAt(idx);
+        String mapping = keypad[currChar-'0'];
+
+        for (int i=0; i<mapping.length(); i++) {
+            printComb(str, idx+1, Combination+mapping.charAt(i));
+        }
+    }
+
+    public static void main (String args[]){
+        String str = "24";
+        printComb(str, 0, "");
+    }
+}
+
 
 
