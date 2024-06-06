@@ -1,0 +1,61 @@
+
+QS:  Print all Permutaions (all possible Combination) of strings.
+
+
+public class Main {
+
+    public static void printPermutator(String str, String permutation) { //index not needed we use a charecter and create new character as index.
+        if (str.length() == 0) {
+            System.out.println(permutation);
+            return;
+        }
+
+        for (int i=0; i<str.length(); i++) {
+            char currChar = str.charAt(i);
+            //"abc" -> "ab" "ac"
+            String newStr = str.substring(0,i) + str.substring(i+1);
+            printPermutator(newStr, permutation + currChar);
+        }
+    }
+    public static void main (String args[]){
+        String str = "abcd";
+        printPermutator(str, "");
+    }
+}
+
+
+
+
+
+
+
+
+QS : Count total path in a maze to move from (0,0) to (n,m).
+
+
+public class Main {
+
+    public static int countPaths ( int i, int j, int n, int m) {
+        if (i==n || j==m) {
+            return 0;
+        }
+        if (i == n-1 || j==m-1) {
+            return 1;
+        }
+
+        // move downwords
+        int downWords = countPaths(i+1, j, n, m);
+        // move right
+        int rightPaths = countPaths(i, j+1, n, m);
+
+        return downWords + rightPaths;
+    }
+    public static void main (String args[]){
+        int n = 4, m = 4;
+        int totaPaths = countPaths(0, 0, n, m);
+        System.out.println(totaPaths);
+    }
+}
+
+
+
