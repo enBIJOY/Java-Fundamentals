@@ -59,3 +59,94 @@ public class Main {
 
 
 
+
+
+QS : Place tiles of size 1xm in a flor of size nXm
+
+
+public class Main {
+
+    public static int placeTiles ( int n, int m) {
+        if (n == m) {
+            return 2;
+        }
+        if (n < m) {
+            return 1;
+        }
+        //vertically
+        int verPlacement = placeTiles(n-m, m);
+        //horizontal
+        int horPlacement = placeTiles(n-1, m);
+        return verPlacement + horPlacement;
+    }
+    public static void main (String args[]){
+       int n=4, m=1;
+        System.out.println(placeTiles(n,m));
+    }
+}
+
+
+
+
+
+
+
+QS :  Find the number of ways in which you can invite n people to your party single or in pairs
+
+
+public class Main {
+
+    public static int callGuest ( int n) {
+        if (n<=1) {
+            return 1;
+        }
+        // single
+        int guestcallway1 = callGuest(n-1);
+        //pair
+        int guestcallway2 = (n-1) * callGuest(n - 2);
+        return guestcallway1 + guestcallway2 ;
+    }
+    public static void main (String args[]){
+       int n=4;
+        System.out.println(callGuest(n));
+    }
+}
+
+
+
+
+
+
+QS :  Print all subsets of a set of first n natural number.
+
+
+public class Main {
+
+    public static void printSubsets(ArrayList<Integer> subset) {
+        for(int i=0; i<subset.size(); i++) {
+            System.out.print(subset.get(i)+" ");
+        }
+        System.out.println();
+    }
+
+
+    public static void findSubsets(int n, ArrayList<Integer> subset) {
+        if(n == 0) {
+            printSubsets(subset);
+            return;
+        }
+
+
+        findSubsets(n-1, subset);
+        subset.add(n);
+        findSubsets(n-1, subset);
+        subset.remove(subset.size() - 1);
+    }
+
+
+    public static void main(String args[]) {
+        int n = 3;
+        findSubsets(n, new ArrayList<Integer> ());
+    }
+
+}
