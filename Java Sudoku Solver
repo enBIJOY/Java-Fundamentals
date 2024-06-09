@@ -5,11 +5,8 @@ public class Main {
             if(board[i][col] == (char)(number+'0')) {//board er row number er equal hoye jay.
                 return false;
             }
-        }
-
         //row
-        for(int j=0; j<board.length; j++) {
-            if(board[row][j] == (char)(number+'0')) { //board er colum number er equal hoye jay
+            if(board[row][i] == (char)(number+'0')) { //board er colum number er equal hoye jay
                 return false;
             }
         }
@@ -37,7 +34,7 @@ public class Main {
         int nrow = 0; // for next box initialyzation
         int ncol = 0;
 
-        if (col!=board.length-1) { // if our colum is not the last colum
+        if (col!= board.length-1) { // if our colum is not the last colum
             nrow = row;
             ncol = col + 1;
         } else {  // if our colum is last colum then we will go next row's first colum
@@ -45,8 +42,9 @@ public class Main {
             ncol = 0;
         }
         if (board [row][col] != '.') { // if board's row&col free. that meens already book by question text.
-          if ( helper(board,nrow,ncol)){ //in this case we will call helper and rerun true.
+          if ( helper(board,nrow,ncol)) { //in this case we will call helper and rerun true.
               return true;
+          }
           } else {  // if board's row&col is free. that means we have to book then
               for (int i=1; i<=9; i++) {  // we fill the free space with 0-9 numbers.
                   if (isSafe(board,row,col,i)) { // is it safe to fill the number in board,raw,col.
@@ -59,7 +57,7 @@ public class Main {
                   }
               }
           }
-        }
+
         return false; // if all is not true.
     }
     public void solveSudoku ( char [][] board){
