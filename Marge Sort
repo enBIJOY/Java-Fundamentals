@@ -1,0 +1,90 @@
+public class Main {
+    public static void conquer (int arr[], int si, int mid, int ei) {
+        int merged[] = new int[ei - si + 1];
+
+        int idx1 = si;
+        int idx2 = mid+1;
+        int x = 0;
+
+        while (idx1 <=mid && idx2 <= ei) {
+            if (arr[idx1] <= arr [idx2]) {
+                merged[x++] = arr[idx1++];
+            } else {
+                merged[x++] = arr[idx2++];
+            }
+        }
+        while (idx1 <= mid) {
+            merged[x++] = arr[idx1++];
+        }
+        while (idx2 <= ei) {
+            merged[x++] = arr[idx2++];
+        }
+
+        for (int i=0, j=si; i<merged.length; i++,j++ ) {
+            arr[j] = merged[i];
+        }
+    }
+    public static void devide(int arr[], int si, int ei) {
+       if (si>=ei) {
+           return;
+       }
+        mid = si + (ei - si) / 2;
+       devide(arr, si, mid);
+        devide (arr, mid+1, ei);
+        conquer (arr, si, mid, ei);
+    }
+
+    public static void main (String args []) {
+        int arr[] = {6, 3, 9, 5, 2, 8};
+        int n = arr.length;
+
+        devide( arr, 0, n-1);
+
+        // print
+
+        for (int i=0; i<n; i++);{
+            System.out.println(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+
+
+
+
+
+
+# Line 31: error: cannot find symbol [in Main.java]
+        mid = si + (ei - si) / 2;
+        ^
+  symbol:   variable mid
+  location: class Main
+Line 32: error: cannot find symbol [in Main.java]
+       devide(arr, si, mid);
+                       ^
+  symbol:   variable mid
+  location: class Main
+Line 33: error: cannot find symbol [in Main.java]
+        devide (arr, mid+1, ei);
+                     ^
+  symbol:   variable mid
+  location: class Main
+Line 34: error: cannot find symbol [in Main.java]
+        conquer (arr, si, mid, ei);
+                          ^
+  symbol:   variable mid
+  location: class Main
+Line 46: error: cannot find symbol [in Main.java]
+            System.out.println(arr[i] + " ");
+                                   ^
+  symbol:   variable i
+  location: class Main
+Line 7: error: cannot find symbol [in __Driver__.java]
+      new Solution().merge(param_1, param_2, param_3, param_4);
+          ^
+  symbol:   class Solution
+  location: class __DriverSolution__
+6 errors
