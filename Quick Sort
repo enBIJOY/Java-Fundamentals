@@ -1,0 +1,49 @@
+public class Main {
+    public static int partition (int arr[], int low, int high) {
+        int pivot = arr [high]; //pivot we choose array er last element. but eta onno element o hote pare.
+        int i = low - 1; //i will deside which kto jaiga khali houa lagbe amader pivot er ceye choto element place korar jonno.
+        //array treverse
+        for (int j=low; j<high; j++) {
+            if (arr[j] < pivot) { //pivot er ceye choto element jodi thake
+                i++; // tahole sekhane (khali jaigay) amra new choto er sathe swap korbo.
+
+                //swap
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        //pivot er age porer element to amra swap korlam but amra pivot k ki korbo?
+        i++; // pivot er jonno khali jaiga banabo
+
+        //swap
+        int temp = arr[i];
+        arr[i] = pivot;
+        arr[high] = temp;
+        
+        return i; //pivot index
+    }
+    public static void quickSort (int arr[], int low, int high) {  //low=array start and high = arry end
+        if (low < high) {  // if low is less then high then quick sort work and if low is lessthan high quicksort will not work, we will not attemt quick sort on this ocation.
+            //our main work will devide in 2 part . one is pivot and one is partition.
+            int pidx = partition(arr,low,high); // pivot er sob kaj partition kore dibe
+
+            quickSort(arr, low, pidx-1); // pivot er choto index gulor quicksort
+            quickSort(arr, pidx+1, high); // pivot er boro index gulor quicksort
+        }
+    }
+
+
+    public static void main (String args []) {  // main function
+        int arr[] = {6, 3, 9, 5, 2, 8};
+        int n = arr.length;
+
+        quickSort(arr, 0, n-1);
+
+        // print
+        for (int i=0; i<n; i++){
+            System.out.println(arr[i] + " ");
+        }
+        System.out.println();
+    }
+}
