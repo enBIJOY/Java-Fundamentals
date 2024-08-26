@@ -1,0 +1,61 @@
+//Non Parameterize Constructor//
+
+class Car{
+    String name;
+    int model;
+//// Method to print car information
+    public void printInfo(){
+        System.out.println(this.name);
+        System.out.println(this.model);
+    }
+    // Default constructor
+    Car(){
+        System.out.println("Default parameter check");
+    }
+    // Parameterized constructor
+    Car(String name, int model){
+        this.name = name;
+        this.model = model;
+    }
+
+}
+
+
+public class Main {
+    public static void main(String[] args){
+        Car C1 = new Car();
+        C1.name = "AudiR9";
+       C1.model = 2025;
+        C1.printInfo();  // Prints the car information
+    }
+}
+
+
+
+//Parameterize Constructor//
+
+
+class Car{
+    String name;
+    int model;
+//// Method to print car information
+    public void printInfo(){
+        System.out.println(this.name);
+        System.out.println(this.model);
+    }
+
+    // Parameterized constructor
+    Car(String name, int model){
+        this.name = name;
+        this.model = model;
+    }
+
+}
+
+
+public class Main {
+    public static void main(String[] args){
+        Car C1 = new Car("AudiR8", 2023);
+        C1.printInfo();  // Prints the car information
+    }
+}
