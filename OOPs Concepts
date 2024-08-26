@@ -1,0 +1,191 @@
+//Polymorphism//
+
+
+class Car{
+    String name;
+    int model;
+
+    // lets Create Some function with same name for overloading.
+    public void printInfo(String name){
+        System.out.println(name);
+    }
+    public void printInfo(int model){
+        System.out.println(model);
+    }
+
+    //created one string type and one intiger type function. lets create different return type function
+
+//    public long printInfo(int model){
+//        System.out.println(model);
+//    }
+
+    // or create sequence of parameter.
+
+    public void printInfo(String name, int model){
+        System.out.println(name + " "+ model);
+    }
+
+
+}
+
+
+public class Main {
+    public static void main(String[] args){
+        Car C1 = new Car();
+        C1.name = "AudiR8";
+        C1.model = 2003;
+
+        C1.printInfo(C1.name,C1.model);  // Prints the car information
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Inharitence//
+
+class Car{
+    String color;
+}
+class audi extends Car{
+
+}
+
+public class Main {
+    public static void main(String[] args){
+        audi R8 = new audi();
+        R8.color = "White";
+    }
+}
+
+//There are 4 Type of Inharitence//
+
+//Single Label Inharitence//
+class Car{
+    public void model() {
+        System.out.println("model of year");
+    }
+}
+
+class audi extends Car{
+    public void area(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        audi R8 = new audi();
+    }
+}
+//Multi Label Inharitence//
+class Car{
+    public void model() {
+        System.out.println("model of year");
+    }
+}
+
+class audi extends Car{
+    public void area(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+class suvAudi extends Car{
+    public void area(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        audi R8 = new audi();
+    }
+}
+//Hierarchial Inharitence//
+class Car{
+    public void model() {
+        System.out.println("model of year");
+    }
+}
+
+class audi extends Car{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+class suvAudi extends Car{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+class trucAudi extends Car{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        audi R8 = new audi();
+    }
+}
+//Hybrid Inharitence//
+class Car{
+    public void model() {
+        System.out.println("model of year");
+    }
+}
+
+class audi extends Car{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+class suvAudi extends Car{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+class trucAudi extends Car{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+class cavardTruckAudi extends trucAudi{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+class boxlesscavardTruckAudi extends trucAudi{
+    public void size(int l, int h){
+        System.out.println(1/2*l*h);
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+        audi R8 = new audi();
+    }
+}
+
+
+
+
+
+
+
+
+
+
