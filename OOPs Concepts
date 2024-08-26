@@ -183,6 +183,45 @@ public class Main {
 
 
 
+//Encapsulation//
+
+class car{
+// here we used public Method as public Access Modifier
+    public String name;
+// default Access Modifier - use range this package.
+    String name1;
+// protected type Access Modifier - use range this package and other packages sub class.
+    protected String myCar;
+// private type Access Modifier - use Range Only this class
+    private String Plate;
+
+    //Getter & Setter
+//getter
+    public String getPlate(){
+        return this.Plate;
+    }
+//Setter    - setter have void type return value.
+    public void setPlate(String plate){
+        this.Plate = plate;
+    }
+}
+
+
+// this is an public class - which can acceable from anywhere of this project.
+public class Main {
+    public static void main(String[] args){
+        car carX = new car();
+        carX.name = "audi";
+        carX.name1 = "default audi";
+        carX.myCar = "audi r8";
+        carX.setPlate("abcd");
+        System.out.println(carX.getPlate());
+    }
+}
+
+
+
+
 
 
 
